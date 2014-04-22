@@ -15,8 +15,8 @@ public class Ej16_01 {
 			numeros[i] = entrada.nextInt();
 		}
 		
-		max = numeros[0];
-		min = numeros[0];
+		max = numeros[0]; //Integer.MIN_VALUE
+		min = numeros[0]; //Integer.MAX_VALUE
 		for(int j = 1; j < numeros.length; j++)
 		{
 			if(numeros[j] > max)
