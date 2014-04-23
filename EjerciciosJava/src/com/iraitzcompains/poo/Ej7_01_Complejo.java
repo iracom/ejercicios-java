@@ -15,10 +15,11 @@ public class Ej7_01_Complejo {
 	}
 
 	public Ej7_01_Complejo(double pReal, double pImag) {
-		super();
+		this(); //Con esto llamamos al Constructor Ej7_1_Complejo(); As’ en este constructor no hace falta poner instancias++
+		
 		this.pReal = pReal;
 		this.pImag = pImag;
-		instancias++;
+		//instancias++;
 	}
 
 	//Getters y Setters
