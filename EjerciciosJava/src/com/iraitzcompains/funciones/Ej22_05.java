@@ -11,11 +11,11 @@ public class Ej22_05 {
 		Scanner entrada = new Scanner(System.in);
 		
 		//Esto vale si la clase Primos no es abstracta
-		Primos primos = new Primos(entrada.nextInt());
-		Vector<Integer> vPrimos = primos.numerosPrimos();
+		/*Primos primos = new Primos(entrada.nextInt());
+		Vector<Integer> vPrimos = primos.numerosPrimos();*/
 		
 		//Si la clase Primos es abstracta, no hay que crear una instancia
-		//Vector<Integer> vPrimos = Primos.numerosPrimos();
+		Vector<Integer> vPrimos = Ej5_03_Abstract.numerosPrimos(entrada.nextInt());
 		
 		System.out.println(vPrimos.toString());
 		
