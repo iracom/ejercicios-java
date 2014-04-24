@@ -9,14 +9,7 @@ public class Ej6_01 {
 		System.out.println("Introduzca el DNI:");
 		Scanner entrada = new Scanner(System.in);
 		
-		VerificarDNI dni = new VerificarDNI(entrada.next());
-
-		if(dni.comprobarDNI())
-		{
-			System.out.println(dni.getNumeros());
-		} else {
-			System.out.println("NIF no valido");
-		}
+		System.out.println("El NIF es " + Ej6_01_Abstract.validar(entrada.next()));
 	}
 
 }
