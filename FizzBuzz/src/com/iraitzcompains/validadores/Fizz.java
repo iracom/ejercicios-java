@@ -4,6 +4,7 @@ import com.iraitzcompains.interfaces.InterfazValidador;
 
 public  class Fizz implements InterfazValidador{
 	
+	
 	private static String output="Fizz";
 	private static int numero=3;
 	

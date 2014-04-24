@@ -9,7 +9,6 @@ import com.iraitzcompains.validadores.Mozz;
 
 public class FizzBuzz {
 	
-
 	ArrayList<InterfazValidador> validadores; 
 	
 	

@@ -1,5 +1,6 @@
 package com.iraitzcompains.validadores;
 
+
 import com.iraitzcompains.interfaces.InterfazValidador;
 
 public  class Mozz implements InterfazValidador{

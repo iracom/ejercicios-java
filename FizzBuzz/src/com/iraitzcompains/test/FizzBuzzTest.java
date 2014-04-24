@@ -69,6 +69,7 @@ public class FizzBuzzTest {
 	@Test
 	public void test() {
 		assertEquals("FizzBuzz 1","1",fb.calcular(1));
+		
 		assertEquals("FizzBuzz 2","1 2",fb.calcular(2));
 		assertEquals("FizzBuzz 3","1 2 Fizz",fb.calcular(3));
 		assertEquals("FizzBuzz 4","1 2 Fizz 4",fb.calcular(4));

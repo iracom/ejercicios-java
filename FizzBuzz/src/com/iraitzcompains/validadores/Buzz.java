@@ -2,6 +2,7 @@ package com.iraitzcompains.validadores;
 
 import com.iraitzcompains.interfaces.InterfazValidador;
 
+
 public  class Buzz implements InterfazValidador{
 	
 	private static String output="Buzz";
