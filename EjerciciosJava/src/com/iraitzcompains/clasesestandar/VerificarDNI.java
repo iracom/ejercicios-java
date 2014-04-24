@@ -18,6 +18,11 @@ public class VerificarDNI {
 		}
 	}
 	
+	public int getNumeros()
+	{
+		return this.numeros;
+	}
+	
 	private void obtenerLetra(){
 		char letra = this.dni.charAt(this.dni.length()-1);
 		if(Character.isLetter(letra))

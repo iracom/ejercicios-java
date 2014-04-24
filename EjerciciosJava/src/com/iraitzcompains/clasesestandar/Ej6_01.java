@@ -11,7 +11,12 @@ public class Ej6_01 {
 		
 		VerificarDNI dni = new VerificarDNI(entrada.next());
 
-		System.out.println("El DNI introducido es " + dni.comprobarDNI());
+		if(dni.comprobarDNI())
+		{
+			System.out.println(dni.getNumeros());
+		} else {
+			System.out.println("NIF no valido");
+		}
 	}
 
 }
