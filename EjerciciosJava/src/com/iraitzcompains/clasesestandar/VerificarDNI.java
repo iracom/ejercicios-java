@@ -33,7 +33,7 @@ public class VerificarDNI {
 			ind++;
 		}
 		if(this.numerosCorrectos){
-			numeros = Integer.parseInt(this.dni.substring(0,this.dni.length()-2));
+			numeros = Integer.parseInt(this.dni.substring(0,this.dni.length()-1));
 		}
 	}
 	
@@ -42,8 +42,6 @@ public class VerificarDNI {
 		boolean esCorrecto = false;
 		if(this.numerosCorrectos){
 			int var = numeros % 23;
-			System.out.println(numeros);
-			System.out.println(var);
 			if(this.letra == letras[var]){
 				esCorrecto = true;
 			}
