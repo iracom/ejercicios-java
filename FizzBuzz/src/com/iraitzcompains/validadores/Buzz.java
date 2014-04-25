@@ -12,7 +12,4 @@ public  class Buzz extends ValidadorAbstract{
 		return num%numero==0;
 	}
 	
-	public String getOutput(){
-		return output;
-	}
 }

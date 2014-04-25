@@ -8,12 +8,8 @@ public  class Fizz extends ValidadorAbstract{
 		super("Fizz");
 	}
 
-	public  boolean validate(int num){
+	public boolean validate(int num){
 		return num%numero==0;
-	}
-	
-	public  String getOutput(){
-		return output;
 	}
 
 }
