@@ -1,12 +1,12 @@
 package com.iraitzcompains.validadores;
 
-import com.iraitzcompains.interfaces.InterfazValidador;
-
-
-public  class Buzz implements InterfazValidador{
+public  class Buzz extends ValidadorAbstract{
 	
-	private static String output="Buzz";
 	private static int numero=5;
+	
+	public Buzz() {
+		super("Buzz");
+	}
 
 	public boolean validate(int num){
 		return num%numero==0;

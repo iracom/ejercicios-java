@@ -1,13 +1,13 @@
 package com.iraitzcompains.validadores;
 
-import com.iraitzcompains.interfaces.InterfazValidador;
-
-public  class Fizz implements InterfazValidador{
+public  class Fizz extends ValidadorAbstract{
 	
-	
-	private static String output="Fizz";
 	private static int numero=3;
 	
+	public Fizz() {
+		super("Fizz");
+	}
+
 	public  boolean validate(int num){
 		return num%numero==0;
 	}

@@ -1,12 +1,12 @@
 package com.iraitzcompains.validadores;
 
-
-import com.iraitzcompains.interfaces.InterfazValidador;
-
-public  class Mozz implements InterfazValidador{
+public  class Mozz extends ValidadorAbstract{
 	
-	private static String output="Mozz";
 	private static int numero=7;
+	
+	public Mozz() {
+		super("Mozz");
+	}
 	
 	public  boolean validate(int num){
 		return num%numero==0;
@@ -15,5 +15,4 @@ public  class Mozz implements InterfazValidador{
 	public  String getOutput(){
 		return output;
 	}
-
 }
