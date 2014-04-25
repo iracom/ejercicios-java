@@ -3,9 +3,9 @@ package com.iraitzcompains.fizzbuzz;
 import java.util.ArrayList;
 
 import com.iraitzcompains.interfaces.InterfazValidador;
-import com.iraitzcompains.validadores.Buzz;
+/*import com.iraitzcompains.validadores.Buzz;
 import com.iraitzcompains.validadores.Fizz;
-import com.iraitzcompains.validadores.Mozz;
+import com.iraitzcompains.validadores.Mozz;*/
 
 public class FizzBuzz {
 	
@@ -13,9 +13,9 @@ public class FizzBuzz {
 	
 	public FizzBuzz(){
 		validadores = new ArrayList<InterfazValidador>();
-		validadores.add( new Fizz());
+		/*validadores.add( new Fizz());
 		validadores.add( new Buzz());
-		validadores.add( new Mozz());
+		validadores.add( new Mozz());*/
 	}
 	
 	public String calcular(int num) {
@@ -47,5 +47,9 @@ public class FizzBuzz {
 		}
 		
 		return pal;
+	}
+	
+	public void addValidador(InterfazValidador i){
+		validadores.add(i);
 	}
 }

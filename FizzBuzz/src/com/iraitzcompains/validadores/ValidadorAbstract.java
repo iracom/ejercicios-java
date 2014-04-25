@@ -6,13 +6,13 @@ public abstract class ValidadorAbstract implements InterfazValidador{
 
 	public String output;
 	
-	public ValidadorAbstract(String output){
-		this.output = output;
-	}
-	
 	public abstract boolean validate(int num);
 	
 	public  String getOutput(){
 		return output;
+	}
+	
+	public void setOutput(String output){
+		this.output = output;
 	}
 }
