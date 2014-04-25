@@ -2,6 +2,7 @@ package com.iraitzcompains.fizzbuzz;
 
 import java.util.ArrayList;
 
+import com.iraitzcompains.excepciones.NumeroNoValidoExcepcion;
 import com.iraitzcompains.interfaces.InterfazValidador;
 /*import com.iraitzcompains.validadores.Buzz;
 import com.iraitzcompains.validadores.Fizz;
@@ -37,8 +38,13 @@ public class FizzBuzz {
 		
 		for(int i=0; i<validadores.size();i++){
 			val=validadores.get(i);
-		 	if(val.validate(num)){
-		 		pal+=val.getOutput();
+		 	try {
+				if(val.validate(num)){
+					pal+=val.getOutput();
+				}
+			} catch (NumeroNoValidoExcepcion e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
