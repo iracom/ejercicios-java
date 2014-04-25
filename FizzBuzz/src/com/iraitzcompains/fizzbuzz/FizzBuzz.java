@@ -2,17 +2,17 @@ package com.iraitzcompains.fizzbuzz;
 
 import java.util.ArrayList;
 
+import com.iraitzcompains.interfaces.InterfazValidador;
 import com.iraitzcompains.validadores.Buzz;
 import com.iraitzcompains.validadores.Fizz;
 import com.iraitzcompains.validadores.Mozz;
-import com.iraitzcompains.validadores.ValidadorAbstract;
 
 public class FizzBuzz {
 	
-	ArrayList<ValidadorAbstract> validadores; 
+	ArrayList<InterfazValidador> validadores; 
 	
 	public FizzBuzz(){
-		validadores = new ArrayList<ValidadorAbstract>();
+		validadores = new ArrayList<InterfazValidador>();
 		validadores.add( new Fizz());
 		validadores.add( new Buzz());
 		validadores.add( new Mozz());
@@ -33,7 +33,7 @@ public class FizzBuzz {
 	
 	public String obtenerTexto(int num){
 		String pal="";
-		ValidadorAbstract val;
+		InterfazValidador val;
 		
 		for(int i=0; i<validadores.size();i++){
 			val=validadores.get(i);
