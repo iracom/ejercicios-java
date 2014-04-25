@@ -56,7 +56,7 @@ public class Empleado implements IEmpleado {
 
 	@Override
 	public void despedir() {
-		this.empresa.despideEmpleado(this.numeroEmpleado);
+		this.empresa = null;
 	}
 	
 	public final void aumentarSueldo (int cantidad){

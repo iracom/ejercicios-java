@@ -1,20 +1,23 @@
 package com.iraitzcompains.empresa;
 
+import java.util.ArrayList;
+
+import com.iraitzcompains.excepciones.TamanyoDeListaExcedido;
 import com.iraitzcompains.interfaces.IEmpleado;
 import com.iraitzcompains.interfaces.IEmpresa;
 
 public class Empresa implements IEmpresa {
-	
+
 	private String nombre;
 	private int tam;
-	private IEmpleado empleados[];
+	private ArrayList<IEmpleado> empleados;
 	private int contador;
-	
-	public Empresa(String nombre, int tam){
+
+	public Empresa(String nombre, int tam) {
 		this.nombre = nombre;
 		this.tam = tam;
-		this.empleados = new IEmpleado[tam];
-		contador = 0;
+		this.empleados = new ArrayList<IEmpleado>(tam);
+		this.contador = 0;
 	}
 
 	@Override
@@ -28,17 +31,41 @@ public class Empresa implements IEmpresa {
 	}
 
 	@Override
-	public IEmpleado getEmpleado(int num) throws ArrayIndexOutOfBoundsException{
-		return this.empleados[num];
+	public IEmpleado getEmpleado(int id) {
+		for (IEmpleado e : this.empleados) {
+			if (e.getNumEmpleado() == id) {
+				return e;
+			}
+		}
+
+		return null;
 	}
 
 	@Override
-	public void despideEmpleado(int num) throws ArrayIndexOutOfBoundsException{
-		this.empleados[num] = null;
+	public void despideEmpleado(int id) {
+		IEmpleado e = this.getEmpleado(id);
+
+		if (this.empleados.contains(e)) {
+			this.empleados.remove(e);
+			e.despedir();
+			contador--;
+		}
 	}
-	
-	public int getContador(){
+
+	public int getContador() {
 		return this.contador;
+	}
+
+	@Override
+	public void nuevoEmpleado(String nombre, int sueldo) throws TamanyoDeListaExcedido {
+		if (contador < this.tam) {
+			contador++;
+			Empleado empleado = new Empleado(this, nombre, sueldo);
+			this.empleados.add(empleado);
+		} else {
+			TamanyoDeListaExcedido e = new TamanyoDeListaExcedido("Se ha excedido el nœmero de trabajadores");
+			throw e;
+		}
 	}
 
 }
