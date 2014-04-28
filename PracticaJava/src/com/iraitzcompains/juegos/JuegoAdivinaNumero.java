@@ -6,7 +6,7 @@ public class JuegoAdivinaNumero extends Juego {
 
 	private int numeroProgramador;
 
-	public JuegoAdivinaNumero(int vidas, byte numero) {
+	public JuegoAdivinaNumero(int vidas, int numero) {
 		super(vidas);
 		this.numeroProgramador = numero;
 	}
@@ -30,8 +30,9 @@ public class JuegoAdivinaNumero extends Juego {
 				terminado = true;
 			} else {
 				boolean quedanVidas = true;
-				if (!valido)
+				if (valido) {
 					quedanVidas = this.quitaVida();
+				}
 				if (quedanVidas) {
 					if (numeroJugador > this.numeroProgramador) {
 						System.out

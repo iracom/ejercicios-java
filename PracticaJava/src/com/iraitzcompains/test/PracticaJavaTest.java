@@ -1,41 +1,31 @@
 package com.iraitzcompains.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.iraitzcompains.juegos.Juego;
+import com.iraitzcompains.juegos.JuegoAdivinaImpar;
+import com.iraitzcompains.juegos.JuegoAdivinaNumero;
+import com.iraitzcompains.juegos.JuegoAdivinaPar;
 
 public class PracticaJavaTest {
 
 	Juego juego1;
 	Juego juego2;
+	Juego juego3;
 	
 	@Before
 	public void setUp() throws Exception {
-		//juego1 = new Juego(5);
-		//juego2 = new Juego(5);
+		juego1 = new JuegoAdivinaNumero(3,6);
+		juego2 = new JuegoAdivinaPar(3,6);
+		juego3 = new JuegoAdivinaImpar(3,9);
 	}
 
 	@Test
 	public void test() {
-		/*juego1.muestraVidasRestantes();
-		assertEquals("Juego 1",5,juego1.getVidas());
-		
-		juego1.quitaVida();
-		juego1.muestraVidasRestantes();
-		assertEquals("Juego 2",4,juego1.getVidas());
-		juego2.muestraVidasRestantes();
-		juego1.muestraVidasRestantes();
-		assertNotSame(juego1, juego2);
-		
-		juego1.reiniciaPartida();
-		juego1.muestraVidasRestantes();
-		assertEquals("Juego 4",5,juego1.getVidas());
-		
-		juego1.actualizarRecord();
-		assertEquals("Juego 5",juego2.getRecord(),juego1.getRecord());*/
+		juego1.juega();
+		juego2.juega();
+		juego3.juega();
 	}
 
 }
