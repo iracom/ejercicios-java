@@ -8,6 +8,7 @@ import org.junit.Test;
 import com.iraitzcompains.empresa.Ejecutivo;
 import com.iraitzcompains.empresa.Empleado;
 import com.iraitzcompains.empresa.Empresa;
+import com.iraitzcompains.empresa.Producto;
 import com.iraitzcompains.interfaces.IEmpleado;
 
 public class EmpresaEmpleadoTest {
@@ -19,6 +20,10 @@ public class EmpresaEmpleadoTest {
 
 	String nombreEmpleado;
 	int sueldo;
+	
+	Producto producto;
+	String nombreProducto;
+	double precioProducto;
 
 	@Before
 	public void setUp() throws Exception {
@@ -30,6 +35,10 @@ public class EmpresaEmpleadoTest {
 		empresa = new Empresa(nombreEmpresa, 3);
 
 		empleado = new Empleado(empresa, nombreEmpleado, sueldo);
+		
+		nombreProducto = "RJ45";
+		precioProducto = 10.50;
+		producto = new Producto(nombreProducto,precioProducto);
 	}
 
 	@Test
@@ -94,6 +103,11 @@ public class EmpresaEmpleadoTest {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@Test
+	public void producto() {
+		assertEquals("Producto 1","RJ45 (10,50)",producto.toString());
 	}
 
 }

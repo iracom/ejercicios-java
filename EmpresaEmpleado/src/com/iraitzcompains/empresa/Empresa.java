@@ -57,11 +57,12 @@ public class Empresa implements IEmpresa {
 	}
 
 	@Override
-	public void nuevoEmpleado(String nombre, int sueldo) throws TamanyoDeListaExcedido {
+	public IEmpleado nuevoEmpleado(String nombre, int sueldo) throws TamanyoDeListaExcedido {
 		if (contador < this.tam) {
 			contador++;
 			Empleado empleado = new Empleado(this, nombre, sueldo);
 			this.empleados.add(empleado);
+			return empleado;
 		} else {
 			TamanyoDeListaExcedido e = new TamanyoDeListaExcedido("Se ha excedido el nœmero de trabajadores");
 			throw e;
@@ -69,9 +70,11 @@ public class Empresa implements IEmpresa {
 	}
 	
 	public void ascender(IEmpleado e){
-		this.despideEmpleado(e.getNumEmpleado());
-		this.empleados.add(e);
-		contador++;
+		IEmpleado em = this.getEmpleado(e.getNumEmpleado());
+		
+		if(e != null){
+			this.empleados.set(this.empleados.indexOf(em), e);
+		}
 	}
 
 }
