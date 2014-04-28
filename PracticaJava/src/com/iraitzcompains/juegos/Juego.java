@@ -42,7 +42,7 @@ public abstract class Juego {
 			System.out.println("Has alcanzado el record!!");
 		} else if(this.vidas > record) {
 			record = this.vidas;
-			System.out.println("Se ha vatido el recor!! Record actual: " + String.valueOf(this.vidas));
+			System.out.println("Se ha batido el recor!! Record actual: " + String.valueOf(this.vidas));
 		}
 	}
 	
