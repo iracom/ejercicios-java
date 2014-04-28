@@ -16,15 +16,22 @@ public class JuegoAdivinaNumero extends Juego {
 		this.reiniciaPartida();
 		boolean terminado = false;
 		do {
-			System.out.println("Adivine un nœmero entre 0 y 10:");
-			Scanner entrada = new Scanner(System.in);
-			int numeroJugador = entrada.nextInt();
+			int numeroJugador;
+			boolean valido = false;
+			do {
+				System.out.println("Adivine un nœmero entre 0 y 10:");
+				Scanner entrada = new Scanner(System.in);
+				numeroJugador = entrada.nextInt();
+				valido = validaNumero(numeroJugador);
+			} while (!valido);
 			if (numeroJugador == this.numeroProgramador) {
 				System.out.println("Acertaste!!");
 				this.actualizarRecord();
 				terminado = true;
 			} else {
-				boolean quedanVidas = this.quitaVida();
+				boolean quedanVidas = true;
+				if (!valido)
+					quedanVidas = this.quitaVida();
 				if (quedanVidas) {
 					if (numeroJugador > this.numeroProgramador) {
 						System.out
