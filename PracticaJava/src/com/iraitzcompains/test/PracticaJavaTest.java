@@ -9,7 +9,9 @@ import org.junit.Test;
 import com.iraitzcompains.juegos.numeros.JuegoAdivinaImpar;
 import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
 import com.iraitzcompains.juegos.numeros.JuegoAdivinaPar;
+import com.iraitzcompains.juegos.excepciones.JuegoException;
 import com.iraitzcompains.juegos.interfaces.Jugable;
+import com.iraitzcompains.profesor.Teclado;
 
 public class PracticaJavaTest {
 
@@ -18,16 +20,17 @@ public class PracticaJavaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		juego = eligeJuego();
+
 	}
 
-	public Jugable eligeJuego() {
-		vJuegos = new Vector<Jugable>(3,2);
+	public Jugable eligeJuego() throws JuegoException {
+		vJuegos = new Vector<Jugable>(3, 2);
 		this.infoVector(vJuegos);
-		
+
+		System.out.println("Preparando juegos...\n");
 		JuegoAdivinaNumero juego1 = new JuegoAdivinaNumero(3);
 		JuegoAdivinaPar juego2 = new JuegoAdivinaPar(3);
-		JuegoAdivinaImpar juego3 = new JuegoAdivinaImpar(2);
+		JuegoAdivinaImpar juego3 = new JuegoAdivinaImpar(3);
 
 		vJuegos.add(juego1);
 		vJuegos.add(juego2);
@@ -41,8 +44,7 @@ public class PracticaJavaTest {
 		int opcion = 0;
 		while (!seleccionado) {
 			System.out.println("Seleccione un juego:");
-			Scanner entrada = new Scanner(System.in);
-			opcion = entrada.nextInt();
+			opcion = Teclado.leeEntero();
 			if (opcion > -1 && opcion < 3)
 				seleccionado = true;
 			else
@@ -53,29 +55,34 @@ public class PracticaJavaTest {
 
 	@Test
 	public void test() {
-		juego.muestraNombre();
-		juego.muestraInfo();
-		juego.juega();
-		boolean respondido = false;
-		System.out.println("Desea jugar denuevo? S= Sí, N= No");
-		while (!respondido) {
-			Scanner entrada = new Scanner(System.in);
-			String respuesta = entrada.next();
-			System.out.println("Su respuesta: " + respuesta.toUpperCase());
-			if(respuesta.toUpperCase().equals("S")) {
-				juego = eligeJuego();
-				this.test();
-				respondido = true;
+		try {
+			juego = this.eligeJuego();
+			juego.muestraNombre();
+			juego.muestraInfo();
+			juego.juega();
+			boolean respondido = false;
+			System.out.println("Desea jugar denuevo? S= Sí, N= No");
+			while (!respondido) {
+				Scanner entrada = new Scanner(System.in);
+				String respuesta = entrada.next();
+				System.out.println("Su respuesta: " + respuesta.toUpperCase());
+				if (respuesta.toUpperCase().equals("S")) {
+					this.test();
+					respondido = true;
+				} else if (respuesta.toUpperCase().equals("N"))
+					respondido = true;
+				else
+					System.out.println("Responda S para S’ o N para No");
 			}
-			else if (respuesta.toUpperCase().equals("N"))
-				respondido = true;
-			else
-				System.out.println("Responda S para S’ o N para No");
+		} catch (JuegoException je) {
+			System.out.println(je.getMensage());
+			this.test();
 		}
 	}
-	
+
 	private void infoVector(Vector<Jugable> v) {
-		System.out.println("Capacidad: " + v.capacity() + ", Tamaño: " + v.size());
+		System.out.println("Capacidad: " + v.capacity() + ", Tamaño: "
+				+ v.size());
 	}
 
 }

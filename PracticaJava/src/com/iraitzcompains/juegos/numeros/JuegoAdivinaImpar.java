@@ -1,11 +1,23 @@
 package com.iraitzcompains.juegos.numeros;
 
+import java.util.Date;
+import java.util.Random;
+
 import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
 
 public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 
 	public JuegoAdivinaImpar(int vidas) {
 		super(vidas);
+		boolean esImpar = false;
+		while (!esImpar) {
+			Date fecha = new Date();
+			Random aleatorio = new Random();
+			aleatorio.setSeed(fecha.getTime());
+			this.numeroProgramador = aleatorio.nextInt(11);
+			if(this.numeroProgramador % 2 != 0)
+				esImpar = true;
+		}
 	}
 
 	@Override
