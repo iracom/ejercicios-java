@@ -1,5 +1,7 @@
 package com.iraitzcompains.juegos.numeros;
 
+import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.iraitzcompains.juegos.Juego;
@@ -9,12 +11,14 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 
 	private int numeroProgramador;
 
-	public JuegoAdivinaNumero(int vidas, int numero) {
+	public JuegoAdivinaNumero(int vidas) {
 		super(vidas);
-		this.numeroProgramador = numero;
+		Date fecha = new Date();
+		Random aleatorio = new Random();
+		aleatorio.setSeed(fecha.getTime());
+		this.numeroProgramador = aleatorio.nextInt(11);
 	}
 
-	@Override
 	public void juega() {
 		this.reiniciaPartida();
 		boolean terminado = false;
@@ -55,12 +59,10 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 		return true;
 	}
 
-	@Override
 	public void muestraNombre() {
 		System.out.println("Adivina un nœmero");
 	}
 
-	@Override
 	public void muestraInfo() {
 		System.out.println("Debe de acertar un nœmero entre el 0 y el 10. Tiene 3 intentos.");
 	}

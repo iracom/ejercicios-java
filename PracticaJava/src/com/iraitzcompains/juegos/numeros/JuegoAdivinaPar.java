@@ -4,8 +4,8 @@ import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
 
 public class JuegoAdivinaPar extends JuegoAdivinaNumero {
 	
-	public JuegoAdivinaPar(int vidas, int numero) {
-		super(vidas,numero);
+	public JuegoAdivinaPar(int vidas) {
+		super(vidas);
 	}
 	
 	@Override

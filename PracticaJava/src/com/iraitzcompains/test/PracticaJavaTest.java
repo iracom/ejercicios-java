@@ -1,7 +1,7 @@
 package com.iraitzcompains.test;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import com.iraitzcompains.juegos.interfaces.Jugable;
 
 public class PracticaJavaTest {
 
-	ArrayList<Jugable> juegos;
+	Vector<Jugable> vJuegos;
 	Jugable juego;
 
 	@Before
@@ -22,15 +22,17 @@ public class PracticaJavaTest {
 	}
 
 	public Jugable eligeJuego() {
-		juegos = new ArrayList<Jugable>();
+		vJuegos = new Vector<Jugable>(3,2);
+		this.infoVector(vJuegos);
 		
-		JuegoAdivinaNumero juego1 = new JuegoAdivinaNumero(3, 7);
-		JuegoAdivinaPar juego2 = new JuegoAdivinaPar(3, 6);
-		JuegoAdivinaImpar juego3 = new JuegoAdivinaImpar(2, 5);
+		JuegoAdivinaNumero juego1 = new JuegoAdivinaNumero(3);
+		JuegoAdivinaPar juego2 = new JuegoAdivinaPar(3);
+		JuegoAdivinaImpar juego3 = new JuegoAdivinaImpar(2);
 
-		juegos.add(juego1);
-		juegos.add(juego2);
-		juegos.add(juego3);
+		vJuegos.add(juego1);
+		vJuegos.add(juego2);
+		vJuegos.add(juego3);
+		this.infoVector(vJuegos);
 
 		System.out.println("0.Adivina un nœmero");
 		System.out.println("1.Adivina un nœmero par");
@@ -46,7 +48,7 @@ public class PracticaJavaTest {
 			else
 				System.out.println("Seleccione entre 0 y 2");
 		}
-		return juegos.get(opcion);
+		return vJuegos.get(opcion);
 	}
 
 	@Test
@@ -55,7 +57,7 @@ public class PracticaJavaTest {
 		juego.muestraInfo();
 		juego.juega();
 		boolean respondido = false;
-		System.out.println("Desea jugar denuevo? S= S’, N= No");
+		System.out.println("Desea jugar denuevo? S= Sí, N= No");
 		while (!respondido) {
 			Scanner entrada = new Scanner(System.in);
 			String respuesta = entrada.next();
@@ -70,6 +72,10 @@ public class PracticaJavaTest {
 			else
 				System.out.println("Responda S para S’ o N para No");
 		}
+	}
+	
+	private void infoVector(Vector<Jugable> v) {
+		System.out.println("Capacidad: " + v.capacity() + ", Tamaño: " + v.size());
 	}
 
 }
