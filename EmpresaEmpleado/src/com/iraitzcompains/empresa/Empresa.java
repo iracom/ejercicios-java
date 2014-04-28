@@ -67,5 +67,11 @@ public class Empresa implements IEmpresa {
 			throw e;
 		}
 	}
+	
+	public void ascender(IEmpleado e){
+		this.despideEmpleado(e.getNumEmpleado());
+		this.empleados.add(e);
+		contador++;
+	}
 
 }

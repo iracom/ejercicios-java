@@ -8,8 +8,4 @@ public class TamanyoDeListaExcedido extends Exception {
 		super(arg0);
 	}
 
-	
-	
-	
-
 }

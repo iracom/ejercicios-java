@@ -8,7 +8,7 @@ public class Empleado implements IEmpleado {
 	private IEmpresa empresa;
 	protected String nombre;
 	protected int sueldo;
-	private int numeroEmpleado;
+	protected int numeroEmpleado;
 	
 	public Empleado(IEmpresa e, String nombre, int sueldo){
 		this.empresa = e;
@@ -61,5 +61,10 @@ public class Empleado implements IEmpleado {
 	
 	public final void aumentarSueldo (int cantidad){
 		this.sueldo = this.sueldo * cantidad;
+	}
+	
+	public void ascender() {
+		Ejecutivo ejecutivo = new Ejecutivo(this.empresa, this.nombre, this.sueldo, this.numeroEmpleado);
+		this.empresa.ascender(ejecutivo);
 	}
 }

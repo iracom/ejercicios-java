@@ -9,5 +9,6 @@ public interface IEmpleado {
 	public void setSueldo(int sueldo);
 	public String toSrting();
 	public void despedir();
+	public void ascender();
 	
 }
