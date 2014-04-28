@@ -1,8 +1,9 @@
-package com.iraitzcompains.juegos;
+package com.iraitzcompains.juegos.numeros;
 
 import java.util.Scanner;
 
-import com.iraitzcompains.interfaces.Jugable;
+import com.iraitzcompains.juegos.Juego;
+import com.iraitzcompains.juegos.interfaces.Jugable;
 
 public class JuegoAdivinaNumero extends Juego implements Jugable {
 
@@ -65,3 +66,4 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 	}
 
 }
+

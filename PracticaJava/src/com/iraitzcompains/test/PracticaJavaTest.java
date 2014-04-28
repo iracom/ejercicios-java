@@ -6,10 +6,10 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iraitzcompains.juegos.JuegoAdivinaImpar;
-import com.iraitzcompains.juegos.JuegoAdivinaNumero;
-import com.iraitzcompains.juegos.JuegoAdivinaPar;
-import com.iraitzcompains.interfaces.Jugable;
+import com.iraitzcompains.juegos.numeros.JuegoAdivinaImpar;
+import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
+import com.iraitzcompains.juegos.numeros.JuegoAdivinaPar;
+import com.iraitzcompains.juegos.interfaces.Jugable;
 
 public class PracticaJavaTest {
 

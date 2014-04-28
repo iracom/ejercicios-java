@@ -1,4 +1,6 @@
-package com.iraitzcompains.juegos;
+package com.iraitzcompains.juegos.numeros;
+
+import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
 
 public class JuegoAdivinaPar extends JuegoAdivinaNumero {
 	

@@ -1,4 +1,6 @@
-package com.iraitzcompains.juegos;
+package com.iraitzcompains.juegos.numeros;
+
+import com.iraitzcompains.juegos.numeros.JuegoAdivinaNumero;
 
 public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 
@@ -20,7 +22,5 @@ public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 	public void muestraInfo() {
 		System.out.println("Debe de acertar un nœmero impar entre el 0 y el 10. Tiene 3 intentos.");
 	}
-	
-	
 
 }

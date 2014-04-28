@@ -1,4 +1,4 @@
-package com.iraitzcompains.interfaces;
+package com.iraitzcompains.juegos.interfaces;
 
 public interface Jugable {
 
