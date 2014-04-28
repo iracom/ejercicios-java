@@ -49,7 +49,5 @@ public abstract class Juego {
 	public void muestraVidasRestantes() {
 		System.out.println("Vidas restantes: " + this.vidas);
 	}
-	
-	public abstract void juega();
 
 }

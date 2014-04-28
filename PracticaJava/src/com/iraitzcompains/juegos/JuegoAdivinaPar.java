@@ -11,4 +11,14 @@ public class JuegoAdivinaPar extends JuegoAdivinaNumero {
 		return numero % 2 == 0;
 	}
 
+	@Override
+	public void muestraNombre() {
+		System.out.println("Adivina un nœmero par");
+	}
+
+	@Override
+	public void muestraInfo() {
+		System.out.println("Debe de acertar un nœmero par entre el 0 y el 10. Tiene 3 intentos.");
+	}
+
 }

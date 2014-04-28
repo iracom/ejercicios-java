@@ -2,7 +2,9 @@ package com.iraitzcompains.juegos;
 
 import java.util.Scanner;
 
-public class JuegoAdivinaNumero extends Juego {
+import com.iraitzcompains.interfaces.Jugable;
+
+public class JuegoAdivinaNumero extends Juego implements Jugable {
 
 	private int numeroProgramador;
 
@@ -50,6 +52,16 @@ public class JuegoAdivinaNumero extends Juego {
 
 	public boolean validaNumero(int numero) {
 		return true;
+	}
+
+	@Override
+	public void muestraNombre() {
+		System.out.println("Adivina un nœmero");
+	}
+
+	@Override
+	public void muestraInfo() {
+		System.out.println("Debe de acertar un nœmero entre el 0 y el 10. Tiene 3 intentos.");
 	}
 
 }
