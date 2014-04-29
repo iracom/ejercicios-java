@@ -23,6 +23,11 @@ public class PracticaJavaTest {
 
 	}
 
+	/**
+	 * Genrea un Vector con 3 tipos de juegos (Normal, Par e Impar) y le da al usuario la opci—n de seleccionar uno de ellos.
+	 * @return
+	 * @throws JuegoException
+	 */
 	public Jugable eligeJuego() throws JuegoException {
 		vJuegos = new Vector<Jugable>(3, 2);
 		this.infoVector(vJuegos);
@@ -42,6 +47,7 @@ public class PracticaJavaTest {
 		System.out.println("2.Adivina un nœmero impar");
 		boolean seleccionado = false;
 		int opcion = 0;
+		//Mientras no se seleccione uno de las tres opciones, seguir‡ pidiŽndolo.
 		while (!seleccionado) {
 			System.out.println("Seleccione un juego:");
 			opcion = Teclado.leeEntero();
@@ -53,6 +59,11 @@ public class PracticaJavaTest {
 		return vJuegos.get(opcion);
 	}
 
+	/**
+	 * Pone en acci—n el el juego completo.
+	 * Da a elegir que tipo de juego se quiere jugar y lo inicializa.
+	 * Una vez terminada una partida, da la opci—n de continuar jugando o finalizar todo.
+	 */
 	@Test
 	public void test() {
 		try {
@@ -80,6 +91,10 @@ public class PracticaJavaTest {
 		}
 	}
 
+	/**
+	 * Muestra informaci—n del vector.
+	 * @param v
+	 */
 	private void infoVector(Vector<Jugable> v) {
 		System.out.println("Capacidad: " + v.capacity() + ", Tamaño: "
 				+ v.size());
