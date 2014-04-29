@@ -23,7 +23,7 @@ public class Teclado {
 			entero = Integer.parseInt(dato);
 			return entero.intValue();
 		} catch (NumberFormatException e) {
-			JuegoException ex = new JuegoException("Introduzca un número entero.\n");
+			JuegoException ex = new JuegoException("Introduzca un nœmero entero.\n");
 			throw ex;
 		} 
 	}

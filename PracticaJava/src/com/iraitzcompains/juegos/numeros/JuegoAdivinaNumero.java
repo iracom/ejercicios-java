@@ -16,8 +16,9 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 	protected int numeroProgramador;
 
 	/**
-	 * Constructor
-	 * Genera un número aleatorio entre 0 y 10. Este será el número a acertar.
+	 * Constructor Genera un número aleatorio entre 0 y 10. Este será el número
+	 * a acertar.
+	 * 
 	 * @param vidas
 	 */
 	public JuegoAdivinaNumero(int vidas) {
@@ -32,57 +33,68 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 	 * Metodo que ejecuta el juego
 	 */
 	public void juega() {
-		try {
-			//Se inicializan las vidas
-			this.reiniciaPartida();
-			boolean terminado = false;
-			//Mientras no se haya terminado el juego, pedir un número del 0 al 10 y comprobar si se ha acertado.
-			//El bucle terminará cuando se acierte o cuando se quede sin vidas.
-			do {
+		// Se inicializan las vidas
+		this.reiniciaPartida();
+		boolean terminado = false;
+		// Mientras no se haya terminado el juego, pedir un número del 0 al 10 y
+		// comprobar si se ha acertado.
+		// El bucle terminará cuando se acierte o cuando se quede sin vidas.
+		do {
+			try {
 				int numeroJugador;
 				boolean valido = false;
-				//Mientras el número no sea válido (que el número esté entre el 0 y el 10 o en el juego par, que sea par y en el juego impar, que sea impar),
-				//Se pedirá al usuario que introduzca un número.
+				// Mientras el número no sea válido (que el número esté entre el
+				// 0 y el 10 o en el juego par, que sea par y en el juego impar,
+				// que sea impar),
+				// Se pedirá al usuario que introduzca un número.
 				do {
 					System.out.println("Adivine un número entre 0 y 10:");
 					numeroJugador = Teclado.leeEntero();
 					valido = validaNumero(numeroJugador);
+					if (!valido)
+						System.out.println("Número no válido.\n");
 				} while (!valido);
-				//Si el número introducido es el mismo que se ha generado, terminarlo.
+				// Si el número introducido es el mismo que se ha generado,
+				// terminarlo.
 				if (numeroJugador == this.numeroProgramador) {
 					System.out.println("Acertaste!!");
 					this.actualizarRecord();
 					terminado = true;
-				} else { //Si no se ha acertado
+				} else { // Si no se ha acertado
 					boolean quedanVidas = true;
-					//Si no se ha acertado y el número es válido se resta una vida.
+					// Si no se ha acertado y el número es válido se resta una
+					// vida.
 					if (valido) {
 						quedanVidas = this.quitaVida();
 					}
-					//Si quedan vidas, dar pista al jugador y no terminar la partida
+					// Si quedan vidas, dar pista al jugador y no terminar la
+					// partida
 					if (quedanVidas) {
 						if (numeroJugador > this.numeroProgramador) {
 							System.out
-									.println("El número a acertar es menor. Sigue intentando...");
+									.println("El número a acertar es menor. Sigue intentando...\n");
 						} else {
 							System.out
-									.println("El número a acertar es mayor. Sigue intentando...");
+									.println("El número a acertar es mayor. Sigue intentando...\n");
 						}
-					} else { //Si no quedan vidas, terminar el juego.
+					} else { // Si no quedan vidas, terminar el juego.
+						System.out.println("Te quedaste sin vidas!!\n");
 						terminado = true;
 					}
 				}
-			} while (!terminado);
-		} catch (JuegoException je) {
-			//Esta excepción se lanzará si lo introducido por el jugador no es un número.
-			System.out.println(je.getMensage());
-		} finally {
-			System.out.println("Juego finalizado");
-		}
+			} catch (JuegoException je) {
+				// Esta excepción se lanzará si lo introducido por el jugador no
+				// es un número.
+				System.out.println(je.getMensage());
+			}
+		} while (!terminado);
+		System.out.println("Juego finalizado");
 	}
 
 	/**
-	 * Comprueba el número. Este método tiene más sentido en los juegos Par e Impar.
+	 * Comprueba el número. Este método tiene más sentido en los juegos Par e
+	 * Impar.
+	 * 
 	 * @param numero
 	 * @return
 	 */
