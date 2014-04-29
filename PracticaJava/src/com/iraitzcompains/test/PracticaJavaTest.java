@@ -72,11 +72,10 @@ public class PracticaJavaTest {
 			juego.muestraInfo();
 			juego.juega();
 			boolean respondido = false;
-			System.out.println("Desea jugar denuevo? S= Sí, N= No");
+			System.out.println("Desea jugar denuevo? S= S’, N= No");
 			while (!respondido) {
 				Scanner entrada = new Scanner(System.in);
 				String respuesta = entrada.next();
-				System.out.println("Su respuesta: " + respuesta.toUpperCase());
 				if (respuesta.toUpperCase().equals("S")) {
 					this.test();
 					respondido = true;
